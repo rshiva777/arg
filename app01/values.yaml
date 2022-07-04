@@ -1,1 +1,6 @@
-
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/rshiva777/argocd.git
+    targetRevision: main

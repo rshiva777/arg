@@ -8,14 +8,14 @@ metadata:
 spec:
   destination:
     namespace: test01
-    server: https://kubernetes.default.svc
+    server: {{ .Values.spec.destination.server }}
   project: default
   source:
     directory:
       jsonnet: {}
       recurse: true
     path: .
-    repoURL: https://github.com/rshiva777/argocd.git
+    repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: main
   syncPolicy:
     automated: {}
