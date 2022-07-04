@@ -10,8 +10,18 @@ spec:
   project: default
   source:
     chart: argo-cd
+    helm:
+      parameters:
+      - name: applicationSet.metrics.serviceMonitor.interval
+        value: 40s
+      valueFiles:
+      - values.yaml
     repoURL: https://harbor.shiva.com/chartrepo/test
-    targetRevision: 4.8.3
+    targetRevision: 4.8.4
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
     - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true

@@ -1,7 +1,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: appnginx
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io  
+  name: nginx
   namespace: argocd
 spec:
   destination:
@@ -9,9 +11,15 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
+    directory:
+      jsonnet: {}
+      recurse: true
     path: .
     repoURL: https://github.com/rshiva777/argocd.git
     targetRevision: main
   syncPolicy:
+    automated: {}
     syncOptions:
     - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
+    - PruneLast=true
