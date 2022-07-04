@@ -4,7 +4,6 @@ spec:
   source:
     repoURL: https://github.com/rshiva777/argocd.git
     targetRevision: main
-      values: |
 applicationSet:
   image:
     repository: quay.io/argoproj/argocd-applicationset      
