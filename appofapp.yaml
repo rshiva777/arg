@@ -12,7 +12,7 @@ spec:
     helm:
       valueFiles:
       - values.yaml
-    path: .
+    path: app01
     repoURL: https://github.com/rshiva777/arg.git
     targetRevision: main
   syncPolicy:
