@@ -7,7 +7,3 @@ spec:
 applicationSet:
   image:
     repository: quay.io/argoproj/argocd-applicationset      
-applicationSet:
-  metrics:
-    serviceMonitor:
-      interval: 60s
