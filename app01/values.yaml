@@ -6,4 +6,4 @@ spec:
     targetRevision: main
 applicationSet:
   image:
-    repository: quay.io/argoproj/argocd-applicationset      
+    repository: quay.io/argoproj/argocd-applicationsetshiva
