@@ -1,29 +1,37 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
 metadata:
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
-  name: helmargo
+  name: guestbook
   namespace: argocd
 spec:
-  destination:
-    namespace: argo-new
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    chart: argo-cd
-    helm:
-      parameters:
-      - name: applicationSet.image.repository
-        value: {{ .Values.applicationSet.image.repository }}
-      valueFiles:
-      - values.yaml
-    repoURL: https://harbor.shiva.com/chartrepo/test
-    targetRevision: 4.8.4
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-    - CreateNamespace=true
-    - ApplyOutOfSyncOnly=true
+  generators:
+  - list:
+      elements:
+      - cluster: argo-cluster
+        url: https://kubernetes.default.svc
+  template:
+    metadata:
+      name: '{{cluster}}-guestbook'
+    spec:
+      destination:
+        namespace: argo-new
+        server: '{{ url }}'
+      project: default
+      source:
+        chart: argo-cd
+        helm:
+          parameters:
+          - name: applicationSet.image.repository
+            value: {{ .Values.applicationSet.image.repository }}
+          valueFiles:
+          - values.yaml
+        repoURL: https://harbor.shiva.com/chartrepo/test
+        targetRevision: 4.8.4
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
+        - ApplyOutOfSyncOnly=true
+    
