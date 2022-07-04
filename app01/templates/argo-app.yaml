@@ -15,7 +15,7 @@ spec:
     spec:
       destination:
         namespace: argo-new
-        server: '{{ url }}'
+        server: '{{ server }}'
       project: default
       source:
         chart: argo-cd
