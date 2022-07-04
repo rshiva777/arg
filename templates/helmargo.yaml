@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helmargo
+  namespace: argocd
+spec:
+  destination:
+    namespace: argo-new
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: argo-cd
+    repoURL: https://harbor.shiva.com/chartrepo/test
+    targetRevision: 4.8.3
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
