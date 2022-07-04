@@ -15,7 +15,7 @@ spec:
     helm:
       parameters:
       - name: applicationSet.metrics.serviceMonitor.interval
-        value: 40s
+        value: {{ .Values.applicationSet.metrics.serviceMonitor.interval }}
       valueFiles:
       - values.yaml
     repoURL: https://harbor.shiva.com/chartrepo/test
