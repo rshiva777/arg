@@ -14,8 +14,8 @@ spec:
     chart: argo-cd
     helm:
       parameters:
-      - name: applicationSet.metrics.serviceMonitor.interval
-        value: {{ .Values.applicationSet.metrics.serviceMonitor.interval }}
+      - name: applicationSet.image.repository
+        value: {{ .Values.applicationSet.image.repository }}
       valueFiles:
       - values.yaml
     repoURL: https://harbor.shiva.com/chartrepo/test
