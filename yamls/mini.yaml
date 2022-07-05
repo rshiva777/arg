@@ -1,6 +1,0 @@
-name: "mini"
-address: "https://kubernetes.default.svc"
-values: |
-  applicationSet:
-    image:
-      repository: shivajuly06
