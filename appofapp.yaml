@@ -14,7 +14,7 @@ spec:
       - values.yaml
     path: app01
     repoURL: https://github.com/rshiva777/arg.git
-    targetRevision: test
+    targetRevision: dev
   syncPolicy:
     automated:
       prune: true

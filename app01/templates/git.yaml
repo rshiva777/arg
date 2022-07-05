@@ -6,7 +6,7 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/rshiva777/arg.git
-      revision: HEAD
+      revision: dev
       files:
       - path: "yamls/**.yaml"
   template:
