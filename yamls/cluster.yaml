@@ -1,0 +1,6 @@
+name: "argo-cluster"
+address: "https://kubernetes.default.svc"
+values: |
+  applicationSet:
+    image:
+      repository: shivajuly05
