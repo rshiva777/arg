@@ -22,7 +22,7 @@ spec:
         helm:
           parameters:
           - name: applicationSet.image.repository
-            value: '{{ .Values.applicationSet.image.repository }}'
+            value: '{{ applicationSet.image.repository }}'
           valueFiles:
           - values.yaml
         repoURL: https://harbor.shiva.com/chartrepo/test
